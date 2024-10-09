@@ -8,9 +8,8 @@ export const about = defineType({
     singleton: true,
   },
   fields: [
-    defineField({type: 'string', name: 'name'}),
-    defineField({type: 'string', name: 'intro'}),
-    defineField({type: 'image', name: 'mainProfileImage'}),
-    defineField({type: 'string', name: 'summary'}),
+    defineField({type: 'string', name: 'name', validation: (r) => r.required()}),
+    defineField({type: 'image', name: 'mainProfileImage', validation: (r) => r.required()}),
+    defineField({type: 'text', name: 'summary', validation: (r) => r.required()}),
   ],
 })

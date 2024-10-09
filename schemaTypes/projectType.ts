@@ -28,15 +28,9 @@ export const projectType = defineType({
       of: [{ type: "image" }],
     }),
     defineField({
-      name: "description",
-      type: "text",
-      validation: (rule) => rule.required(),
-    }),
-    defineField({
-      name: "projectUrl",
-      title: "Project Url",
-      type: "url",
-      validation: (rule) => rule.required(),
+      name: "body",
+      type: "array",
+      of: [{ type: "block" }],
     }),
   ],
 });
