@@ -20,7 +20,6 @@ export const projectType = defineType({
       name: "publishedAt",
       type: "datetime",
       initialValue: () => new Date().toISOString(),
-      validation: (rule) => rule.required(),
     }),
     defineField({
       name: "images",
@@ -28,15 +27,28 @@ export const projectType = defineType({
       of: [{ type: "image" }],
     }),
     defineField({
-      name: "description",
-      type: "text",
+      name: 'description',
+      type: 'text',
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: "projectUrl",
-      title: "Project Url",
-      type: "url",
+      name: 'role',
+      type: 'array',
+      of: [{type: 'block'}],
       validation: (rule) => rule.required(),
+    }),
+
+    defineField({
+      name: 'projectUrl',
+      title: 'Project Url',
+      type: 'url',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      title: 'Skills',
+      name: 'skills',
+      type: 'array',
+      of: [{type: 'reference', to: [{type: 'skill'}]}],
     }),
   ],
 });
